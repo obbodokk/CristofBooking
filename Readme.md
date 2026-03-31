@@ -41,7 +41,7 @@
 | Backend | Python / Flask 
 | Frontend | React / JavaScript / HTML5 / CSS3 |
 | Database | PostgreSQL / MySQL |
-| Testing | Pytest / |
+| Testing | Pytest  |
 
 > *Фактический стек уточняется у участников проекта.*
 
