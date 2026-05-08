@@ -1,5 +1,5 @@
 import React from "react"
-import Header,{Login,Register} from "./Headers"
+import Header,{Login,Register,About,Dashboard} from "./Headers"
 import Search from "./Search"
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 class App extends React.Component{
@@ -12,6 +12,8 @@ class App extends React.Component{
 
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/dashboard" element={<Dashboard/>}/>
             </Routes>
             </Router>
         </div>
