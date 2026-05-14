@@ -1,23 +1,43 @@
-import React from "react"
-import Header,{Login,Register,About,Dashboard} from "./Headers"
-import Search from "./Search"
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-class App extends React.Component{
-    render(){return(
-        <div id="top">
-            <Router>
-            <Routes>
+import React from "react";
+import Header, {Login, Register, About} from "./Headers";
+import Search from "./Search";
+import Hotels from "./Hotels";
+import HotelCard from "./Hotel_card";
+import Back from "./back";
+import {Dashboard} from "./Headers";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Account from "./account";
 
-            <Route path="/" element={ <><Header/> <Search/></>}/>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/register" element={<Register/>}/>
-            <Route path="/about" element={<About/>}/>
-            <Route path="/dashboard" element={<Dashboard/>}/>
-            </Routes>
-            </Router>
-        </div>
-        
-    )}
+    this.state = {auth: !!localStorage.getItem("token"),};
+  }
+
+  setAuth = (value) => {
+    this.setState({ auth: value });
+  };
+
+  render() {
+    return (
+      <div id="top">
+        <Router>
+        <Routes>
+
+            <Route path="/" element={<> <Header auth={this.state.auth} setAuth={this.setAuth}/> <Search /> <Hotels /> </>}/>
+            <Route path="/hotels" element={<> <Header auth={this.state.auth} setAuth={this.setAuth}/> <Search /> <Back /> <Hotels /></>}/>
+            <Route path="/login" element={ <Login setAuth={this.setAuth} />}/>
+            <Route path="/register" element={<Register />}/>
+            <Route path="/about" element={<About />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/hotel/:id" element={<HotelCard />} />
+            <Route path="/account" element={<Account/>} />
+          </Routes>
+        </Router>
+      </div>
+    );
+  }
 }
-export default App
+
+export default App;
