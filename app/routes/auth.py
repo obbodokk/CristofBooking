@@ -35,7 +35,7 @@ def login():
         
 )
 
-    return jsonify({"token": token,"user": {"id": user.id,"email": user.email}})
+    return jsonify({"token": token,"user": user.to_dict()})
 
 
 
