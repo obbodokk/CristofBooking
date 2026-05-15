@@ -1,13 +1,1 @@
-FLASK_APP = app
-FLASK_ENV = development
-FLASK_DEBUG = True
-SECRET_KEY=super_secret_flask_key
-JWT_SECRET_KEY=my_jwt_secret_key
-DATABASE_URL=postgresql://postgres:yourpassword@localhost/cristofbooking
-USER=postgres
-PASSWORD=1234
-HOST=localhost
-PORT=5432
-DB=cristofbooking
-SECRET_KEY=key
-JWT_SECRET_KEY=jwtkey
+
