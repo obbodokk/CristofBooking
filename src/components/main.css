@@ -3,9 +3,13 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: "Martian Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight:100;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
 }
-
-
 
 .header {
     padding: 50px 100px;
@@ -18,7 +22,6 @@
     justify-content: space-between;
     align-items: center;
 }
-
 
 .header-left {
     font-weight: 900;
@@ -153,10 +156,10 @@ hr {
     align-items: center;
     padding: 7px;
     gap: 10px;
-    border: 3px solid green;
+    border: 3px solid rgb(0, 0, 0);
     width: fit-content;
     margin: 100px auto;
-    background: rgb(255, 255, 102);
+    background: linear-gradient(100deg,#e4e43d,#319be2);
     border-radius: 13px;
     position: relative;
 }
@@ -179,14 +182,14 @@ hr {
     padding: 15px 60px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: rgb(20, 109, 211);
-    color: white;
+    background: rgb(255, 185, 94);
+    color: rgb(0, 0, 0);
     border-radius: 13px;
     border: none;
 }
 
 .search .find:hover {
-    background: rgb(10, 80, 160);
+    background: rgb(160, 112, 10);
     transform: scale(1.05);
 }
 
@@ -243,7 +246,7 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    background:rgb(87, 87, 243);
+    background: linear-gradient(133deg,#5757f3,#814283)
 }
 .login_rel{
     background:rgb(182, 192, 226);
@@ -259,7 +262,7 @@ hr {
     display:flex;
     justify-content: center;
     align-items:center;
-    background:rgb(87, 87, 243);
+    background: linear-gradient(133deg,#5757f3,#814283)
 }
 .register_rel{
     background:rgb(182, 192, 226);
@@ -665,3 +668,253 @@ hr {
     gap:10px;
     box-shadow: 22px 15px 30px 15px rgba(0,0,0,0.08);
 }
+.account_bookings {
+margin-left: 100px;
+}
+
+.account_bookings h2 {
+  margin-bottom: 15px;
+}
+
+.bookings_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 15px;
+}
+
+.booking_card {
+  background: #111;
+  color: white;
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.booking_card:hover {
+  transform: translateY(-4px);
+}
+
+
+.booking_id {
+  font-weight: bold;
+}
+
+.booking_status {
+  font-size: 12px;
+  padding: 3px 8px;
+  background: green;
+  border-radius: 10px;
+}
+
+.booking_body p {
+  margin: 4px 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.booking_footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.empty {
+  opacity: 0.6;
+}
+
+.account {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #cbd5e1, #a7f3d0);
+}
+
+.account_bookings {
+  margin-left: 0;
+  max-width: 900px;
+}
+
+.bookings_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+
+.booking_card {
+  background: #111;
+  margin: 10px;
+  color: white;
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  transition: 0.25s ease;
+  position: relative;
+}
+
+.booking_card:hover {
+  transform: translateY(-6px);
+}
+
+
+.booking_card.paid {
+  border: 2px solid #22c55e;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+}
+
+.modal_box {
+  width: 380px;
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: text-focus-in 0.3s ease;
+}
+
+.modal_box h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.modal_box input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.2s;
+}
+
+.modal_box input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+}
+
+.modal_box button {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal_box button:first-of-type {
+  background: #22c55e;
+  color: white;
+}
+
+.modal_box button:first-of-type:hover {
+  background: #16a34a;
+}
+
+.modal_box button:last-of-type {
+  background: #e5e7eb;
+}
+
+.modal_box button:last-of-type:hover {
+  background: #d1d5db;
+}
+
+
+.status_paid {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #22c55e;
+  color: white;
+  margin-top: 6px;
+}
+
+.status_pending {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #f59e0b;
+  color: black;
+  margin-top: 6px;
+}
+
+.Delete,
+.Pay {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+}
+
+.Delete {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+  box-shadow: 0 8px 18px rgba(239, 68, 68, 0.25);
+}
+
+.Delete:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(239, 68, 68, 0.35);
+}
+
+.Delete:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+
+.Pay {
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  color: white;
+  box-shadow: 0 8px 18px rgba(34, 197, 94, 0.25);
+}
+
+.Pay:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.35);
+}
+
+.Pay:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.Delete:disabled,
+.Pay:disabled {
+  background: #2a2a2a !important;
+  color: #888 !important;
+  cursor: not-allowed;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 0.6;
+}
+

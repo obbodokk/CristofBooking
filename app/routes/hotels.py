@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
 from ..models.hotel import Hotel
-from ..extensions import db
 
 hotels_bp = Blueprint('hotels', __name__, url_prefix='/api/hotels')
 

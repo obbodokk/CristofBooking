@@ -4,7 +4,12 @@ import hashlib
 from ..models import Room, Booking, Amenity
 from ..extensions import db
 import jwt
+import stripe
+from flask import current_app
 from ..models import Guest
+
+
+
 api_bp = Blueprint('api', __name__, url_prefix='/api')
 
 @api_bp.route('/hotels/<int:hotel_id>/rooms', methods=['GET'])
@@ -26,10 +31,9 @@ def create_booking():
 
     try:
         payload = jwt.decode(
-            token,
-            "JWT_SECRET_KEY",
-            algorithms=["HS256"]
-        )
+        token,
+        current_app.config["JWT_SECRET_KEY"],
+        algorithms=["HS256"])
         user_id = payload["user_id"]
     except:
         return jsonify({"error": "Invalid token"}), 401
@@ -56,10 +60,10 @@ def create_booking():
         db.session.rollback()
         return jsonify({"error": str(e)}), 400
 
-@api_bp.route('/users/<int:user_id>/bookings', methods=['GET'])
+@api_bp.route('/users/<int:user_id>/bookings')
 def get_user_bookings(user_id):
     bookings = Booking.query.filter_by(user_id=user_id).all()
-    return jsonify([booking.to_dict() for booking in bookings])
+    return jsonify([b.to_dict() for b in bookings])
 
 @api_bp.route('/guests', methods=['GET'])
 def get_guests():
@@ -86,3 +90,42 @@ def get_hash(input_str):
         "algorithm": "sha256"
     })
 
+@api_bp.route('/bookings/<int:booking_id>', methods=['DELETE'])
+def delete_booking(booking_id):
+    booking = Booking.query.get(booking_id)
+
+    if not booking:
+        return jsonify({"error": "Not found"}), 404
+
+    db.session.delete(booking)
+    db.session.commit()
+
+    return jsonify({"message": "deleted"}), 200
+    
+@api_bp.route('/bookings/<int:booking_id>/pay', methods=['POST'])
+def pay_booking(booking_id):
+    
+    stripe.api_key = current_app.config.get("STRIPE_SECRET_KEY")
+    print("PAY ROUTE HIT")
+    print(current_app.config)
+    if not stripe.api_key:
+        return jsonify({"error": "Stripe key not set"}), 500
+    booking = Booking.query.get(booking_id)
+
+    if not booking:
+        return jsonify({"error": "Booking not found"}), 404
+
+    try:
+        booking.status = "paid"
+        db.session.commit()
+
+        return jsonify({
+    "success": True,
+    "message": "Payment successful",
+    "booking_id": booking_id
+}), 200
+
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 400
+    

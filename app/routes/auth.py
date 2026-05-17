@@ -23,23 +23,26 @@ def register():
 @auth.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
+
     user = User.query.filter_by(email=data['email']).first()
 
     if not user or not user.check_password(data['password']):
         return jsonify({'error': 'Invalid credentials'}), 401
 
     token = jwt.encode(
-    {"user_id": user.id},
-    "JWT_SECRET_KEY",
-    algorithm="HS256"
-        
-)
+        {"user_id": user.id},
+        current_app.config["JWT_SECRET_KEY"],
+        algorithm="HS256"
+    )
 
-
-
-    return jsonify({"token": token,"user": user.to_dict()})
-
-
+    return jsonify({
+        "token": token,
+        "user": {
+            "id": user.id,
+            "email": user.email,
+            "username": user.username,
+        }
+    })
 
 
 @auth.route('/me', methods=['GET'])
