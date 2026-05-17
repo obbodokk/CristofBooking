@@ -101,8 +101,9 @@ export function Register() {
     <div className="back_register">
       <button
         className="back-home"
-        onClick={() => window.location.href = "/"}>
-        {"<- На главную"}
+        onClick={() => (window.location.href = "/")}
+      >
+        ← На главную
       </button>
 
       <form className="register_rel" onSubmit={handleRegister}>
@@ -168,8 +169,9 @@ export function Login({ setAuth }) {
     <main className="back_login">
       <button
         className="back-home"
-        onClick={() => window.location.href = "/"}>
-        {"<- На главную"}
+        onClick={() => (window.location.href = "/")}
+      >
+        ← На главную
       </button>
 
       <form className="login_rel" onSubmit={handleLogin}>
@@ -197,11 +199,11 @@ export function About(){
     return(
         <div className='back_about'>
             <button
-  className="back-home"
-  onClick={() => window.location.href = "/"}
->
-  {"<- На главную"}
-</button>
+        className="back-home"
+        onClick={() => (window.location.href = "/")}
+      >
+        ← На главную
+      </button>
             <h1>Веб-приложение для бронирования отелей!</h1>
            <p>Современная платформа для поиска и бронирования отелей с удобным интерфейсом и системой оплаты.</p>
            <hr/>
@@ -303,7 +305,12 @@ export function Dashboard() {
 
   return (
     <div style={{ padding: "40px" }}>
-
+      <button
+        className="back-home"
+        onClick={() => (window.location.href = "/")}
+      >
+        ← На главную
+      </button>
       <HighchartsReact highcharts={Highcharts} options={countryOptions}/>
 
       <br />

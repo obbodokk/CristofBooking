@@ -27,7 +27,7 @@ export default function Account() {
 
   return (
     <div className="account">
-        <button className="back-home" onClick={() => window.location.href="/"}>{"<- На главную"}</button>
+        <button className="back-home" onClick={() => window.location.href="/"}>{"← На главную"}</button>
 
         
       <div className="account_card">

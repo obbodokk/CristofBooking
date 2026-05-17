@@ -1,4 +1,6 @@
 from flask import Blueprint, jsonify, request
+import json
+import hashlib
 from ..models import Room, Booking, Amenity
 from ..extensions import db
 import jwt
@@ -62,4 +64,25 @@ def get_user_bookings(user_id):
 @api_bp.route('/guests', methods=['GET'])
 def get_guests():
     guests = Guest.query.all()
+
     return jsonify([guest.to_dict() for guest in guests])
+
+@api_bp.route('/about', methods=['GET'])
+def get_about_json():
+    try:
+        with open('about.json', 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return jsonify(data)
+    except FileNotFoundError:
+        return jsonify({"error": "about.json not found"}), 404
+
+@api_bp.route('/hash/<string:input_str>', methods=['GET'])
+def get_hash(input_str):
+    hash_object = hashlib.sha256(input_str.encode())
+    hex_dig = hash_object.hexdigest()
+    return jsonify({
+        "input": input_str,
+        "hash": hex_dig,
+        "algorithm": "sha256"
+    })
+
