@@ -10,7 +10,7 @@ class Config(object):
     PORT = os.getenv("PORT", "5432")
     DB = os.getenv("DB", "cristofbooking")
     SECRET_KEY = os.getenv("SECRET_KEY", "key")
-    JWT_SECRET_KEY = "super-secret-key"
     SQLALCHEMY_DATABASE_URI ="postgresql+psycopg2://postgres:1234@localhost:5432/cristofbooking?sslmode=disable"
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     STRIPE_SECRET_KEY = "test_key"
+    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")

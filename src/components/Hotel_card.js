@@ -122,8 +122,7 @@ if (res.ok) {
 
   return (
     <div className="hotel-details">
-      <button
-        className="back-home"
+      <button className="back-home"
         onClick={() => (window.location.href = "/")}
       >
         ← На главную

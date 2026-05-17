@@ -72,10 +72,11 @@ const logout = () => {
 
   return (
     <div className="account">
-
+      <button className="back-home" onClick={() => (window.location.href = "/")}>
+        ← На главную
+      </button>
       <div className="account_card">
         <h1>Личный кабинет</h1>
-
         <p><b>ID:</b> {user.id}</p>
         <p><b>Email:</b> {user.email}</p>
         <p><b>Username:</b> {user.username}</p>
@@ -86,7 +87,7 @@ const logout = () => {
 
       <div className="account_bookings">
         <h2 style={{
-          marginLeft:"200px"
+          marginLeft:"40px"
         }}>Мои бронирования</h2>
 
         {bookings.map((b) => {
@@ -94,7 +95,6 @@ const logout = () => {
 
           return (
             <div key={b.id} className="booking_card">
-
               <p><b>Отель:</b> {b.hotel_name}</p>
               <p><b>Комната:</b> {b.room_type}</p>
               <p><b>Заезд:</b> {b.check_in}</p>
@@ -119,8 +119,8 @@ const logout = () => {
                 </button>
 
               </div>
-
             </div>
+            
           );
         })}
       </div>
