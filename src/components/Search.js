@@ -51,7 +51,7 @@ class Search extends React.Component {
   }
 
   handleSearch = () => {
-    const { query } = this.state;
+    const {query} = this.state;
 
     if (!query.trim()) return;
 
@@ -124,7 +124,7 @@ class Search extends React.Component {
 }
 
 function withRouter(Component) {
-  return function Wrapper(props) {
+  return function Wrapper(props) {  
     const navigate = useNavigate();
     return <Component {...props} navigate={navigate} />;};
 }

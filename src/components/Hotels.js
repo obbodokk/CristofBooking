@@ -13,9 +13,7 @@ export default function Hotels() {
   const cityParam = query.get("city");
 
   const cleanCity =
-    typeof cityParam === "string"
-      ? cityParam.split(",").pop().trim()
-      : "";
+    typeof cityParam === "string" ? cityParam.split(",").pop().trim() : "";
 
   useEffect(() => {
     let url = "http://127.0.0.1:5000/api/hotels/";
