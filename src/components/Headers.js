@@ -208,12 +208,6 @@ export function About(){
            <p>Современная платформа для поиска и бронирования отелей с удобным интерфейсом и системой оплаты.</p>
            <hr/>
            <h2>Участники приложения</h2>
-           <div className='team'>
-           <div>🔧 Backend — Обод Даниил — @obbodokk</div>
-           <div>🎨 Frontend — Маврин Данил — @Pikabys</div>
-           <div>🗄️ Database — Кучеренко Тимофей — @blacksuitcl</div>
-           <div>🧪 Testing — Малышев Михаил — @mike03bratok</div>
-           </div>
            <hr/>
            <h2>Функционал приложения</h2>
            <ul>
