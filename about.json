@@ -2,12 +2,6 @@
   "project_name": "CristofBooking",
   "version": "1.0.0",
   "description": "Современная платформа для поиска и бронирования отелей с удобным интерфейсом и системой оплаты.",
-  "team": [
-    {"role": "Backend", "name": "Обод Даниил"},
-    {"role": "Frontend", "name": "Маврин Данил"},
-    {"role": "Database", "name": "Кучеренко Тимофей"},
-    {"role": "Testing", "name": "Малышев Михаил"}
-  ],
   "stack": {
     "backend": ["Python", "Flask", "SQLAlchemy", "PostgreSQL"],
     "frontend": ["React", "JavaScript", "CSS3"],
