@@ -3,18 +3,6 @@
 
 > Современная платформа для поиска и бронирования отелей с удобным интерфейсом и системой оплаты.
 
----
-
-## 👥 Участники проекта
-
-| Роль | Участник | GitHub |
-|------|----------|--------|
-| 🔧 **Backend** | Обод Даниил | [@obbodokk](https://github.com/obbodokk) |
-| 🎨 **Frontend** | Маврин Данил | [@Pikabys](https://github.com/Pikabys) |
-| 🗄️ **Database** | Кучеренко Тимофей | [@blacksuitcl](https://github.com/blacksuitcl) |
-| 🧪 **Testing** | Малышев Михаил | [@mike03bratok](https://github.com/mike03bratok) |
-
----
 
 ## ⚙️ Функционал приложения
 
